@@ -62,7 +62,7 @@
                 <div class="story-text-content">
                     <h3>Our Foundation</h3>
                     <p>MedStudy Global was founded with a simple yet powerful vision: to make quality medical education accessible to deserving students worldwide. What started as a small consultancy has grown into a comprehensive educational service provider.</p>
-                    <p>Our founders, Dr. Mohd Irshad and Azaz Ahamad, both having experienced the challenges of pursuing medical education abroad, were determined to create a bridge between ambitious students and world-class medical institutions.</p>
+                    <p>Our founders, Mohd Irshad and Dr. Azaz Ahamad, both having experienced the challenges of pursuing medical education abroad, were determined to create a bridge between ambitious students and world-class medical institutions.</p>
                 </div>
                 
 

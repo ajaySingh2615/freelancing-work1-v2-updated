@@ -149,63 +149,35 @@
             
             <div class="gallery-grid">
                 <div class="gallery-grid-item">
-                    <img src="assets/images/media/gallary-images/i-8.webp" alt="Gallery Image 8" data-full="assets/images/media/gallary-images/i-8.webp">
-                    <div class="grid-overlay">
-                        <div class="grid-content">
-                            <h4>Academic Excellence</h4>
-                            <p>Celebrating achievements</p>
-                        </div>
-                    </div>
+                    <img src="assets/images/media/gallary-images/new/image-1.webp" alt="Gallery Image 1" data-full="assets/images/media/gallary-images/new/image-1.webp">
                 </div>
                 
                 <div class="gallery-grid-item">
-                    <img src="assets/images/media/gallary-images/i-9.webp" alt="Gallery Image 9" data-full="assets/images/media/gallary-images/i-9.webp">
-                    <div class="grid-overlay">
-                        <div class="grid-content">
-                            <h4>Student Life</h4>
-                            <p>Campus experiences</p>
-                        </div>
-                    </div>
+                    <img src="assets/images/media/gallary-images/new/image-2.webp" alt="Gallery Image 2" data-full="assets/images/media/gallary-images/new/image-2.webp">
                 </div>
                 
                 <div class="gallery-grid-item">
-                    <img src="assets/images/media/gallary-images/i-10.webp" alt="Gallery Image 10" data-full="assets/images/media/gallary-images/i-10.webp">
-                    <div class="grid-overlay">
-                        <div class="grid-content">
-                            <h4>Events & Ceremonies</h4>
-                            <p>Special occasions</p>
-                        </div>
-                    </div>
+                    <img src="assets/images/media/gallary-images/new/image-3.webp" alt="Gallery Image 3" data-full="assets/images/media/gallary-images/new/image-3.webp">
                 </div>
                 
                 <div class="gallery-grid-item">
-                    <img src="assets/images/media/gallary-images/i-11.webp" alt="Gallery Image 11" data-full="assets/images/media/gallary-images/i-11.webp">
-                    <div class="grid-overlay">
-                        <div class="grid-content">
-                            <h4>International Programs</h4>
-                            <p>Global connections</p>
-                        </div>
-                    </div>
+                    <img src="assets/images/media/gallary-images/new/image-4.webp" alt="Gallery Image 4" data-full="assets/images/media/gallary-images/new/image-4.webp">
                 </div>
                 
                 <div class="gallery-grid-item">
-                    <img src="assets/images/media/gallary-images/i-12.webp" alt="Gallery Image 12" data-full="assets/images/media/gallary-images/i-12.webp">
-                    <div class="grid-overlay">
-                        <div class="grid-content">
-                            <h4>Research & Innovation</h4>
-                            <p>Breaking boundaries</p>
-                        </div>
-                    </div>
+                    <img src="assets/images/media/gallary-images/new/image-5.webp" alt="Gallery Image 5" data-full="assets/images/media/gallary-images/new/image-5.webp">
                 </div>
                 
                 <div class="gallery-grid-item">
-                    <img src="assets/images/media/gallary-images/i-14.webp" alt="Gallery Image 14" data-full="assets/images/media/gallary-images/i-14.webp">
-                    <div class="grid-overlay">
-                        <div class="grid-content">
-                            <h4>Medical Training</h4>
-                            <p>Hands-on learning</p>
-                        </div>
-                    </div>
+                    <img src="assets/images/media/gallary-images/new/image-6.webp" alt="Gallery Image 6" data-full="assets/images/media/gallary-images/new/image-6.webp">
+                </div>
+                
+                <div class="gallery-grid-item">
+                    <img src="assets/images/media/gallary-images/new/image-7.webp" alt="Gallery Image 7" data-full="assets/images/media/gallary-images/new/image-7.webp">
+                </div>
+                
+                <div class="gallery-grid-item">
+                    <img src="assets/images/media/gallary-images/new/image-8.webp" alt="Gallery Image 8" data-full="assets/images/media/gallary-images/new/image-8.webp">
                 </div>
             </div>
         </div>

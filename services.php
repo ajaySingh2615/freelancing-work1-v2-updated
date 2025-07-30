@@ -117,8 +117,8 @@ include 'includes/header.php';
                     <h3 class="service-title">Scholarship & Financial Aid Guidance</h3>
                     <p class="service-description">
                         Help identifying and applying for merit based scholarships, grants, and education loans; 
-                        liaising with banks for competitive interest rates. We guide you through various funding 
-                        options to make your medical education abroad more affordable and accessible.
+                        liaising with banks for competitive interest rates. Special access to exclusive MDA 
+                        scholarships providing tuition fee waivers for deserving students.
                     </p>
                 </article>
 
