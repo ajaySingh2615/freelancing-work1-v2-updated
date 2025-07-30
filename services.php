@@ -68,7 +68,7 @@ include 'includes/header.php';
                     </div>
                     <h3 class="service-title">University Selection</h3>
                     <p class="service-description">
-                        Counsellors at Rus Education are well experienced, competent and trained in helping 
+                        Counsellors at Sunrise Global Education are well experienced, competent and trained in helping 
                         the students in finding the right university for their education abroad, in retrospect of your 
                         individual needs and requirements. They offer some of the cherry-picked options, from 50+ top 
                         medical universities & 20+ countries, to help you to become a successful doctor.
@@ -84,7 +84,7 @@ include 'includes/header.php';
                     </div>
                     <h3 class="service-title">100% Admission Assistance</h3>
                     <p class="service-description">
-                        Rus Education assist you with complete admission guidance at every step. When it 
+                        Sunrise Global Education assist you with complete admission guidance at every step. When it 
                         comes to studying MBBS abroad, there can be piles of documentation required at various 
                         stages. Our team offers complete assistance through the entire process. Documentation 
                         Assistance Travel Assistance Forex Assistance Loan Assistance.
