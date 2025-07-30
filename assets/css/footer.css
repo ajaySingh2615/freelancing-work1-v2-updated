@@ -1,0 +1,1191 @@
+/* 
+* Sunrise Global Education - MBBS Abroad Consultancy
+* Footer Stylesheet
+*/
+
+/* ===== FOOTER STYLES ===== */
+.footer-area {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-dark) 50%,
+    #0f3460 100%
+  );
+  color: var(--white);
+  padding: 4rem 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-area::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(0, 53, 133, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(254, 186, 2, 0.05) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+.footer-widget {
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-logo {
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo a:hover {
+  transform: scale(1.05);
+}
+
+.footer-logo img {
+  max-height: 4rem;
+  width: auto;
+  filter: brightness(1.1);
+}
+
+.about-text {
+  color: #e0e0e0;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.footer-widget .social-icons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-widget .social-icons li {
+  margin: 0;
+}
+
+.footer-widget .social-icons li a {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e0e0e0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.footer-widget .social-icons li a:hover {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: var(--white);
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 53, 133, 0.3);
+  border-color: transparent;
+}
+
+.widget-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+  position: relative;
+  padding-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.widget-title:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2.5rem;
+  height: 0.1875rem;
+  background: linear-gradient(
+    90deg,
+    var(--accent-color),
+    var(--secondary-color)
+  );
+  border-radius: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links li a {
+  color: #d0d0d0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 0;
+  font-size: 0.95rem;
+  display: inline-block;
+}
+
+.footer-links li a:before {
+  content: "→";
+  position: absolute;
+  left: -1rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: var(--accent-color);
+}
+
+.footer-links li a:hover {
+  color: var(--white);
+  padding-left: 1.2rem;
+  transform: translateX(0.25rem);
+}
+
+.footer-links li a:hover:before {
+  opacity: 1;
+  left: 0;
+}
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info li {
+  margin-bottom: 1.2rem;
+  color: #d0d0d0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  line-height: 1.5;
+}
+
+.contact-info li i {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+  width: 1.2rem;
+  text-align: center;
+}
+
+.contact-info li a {
+  color: #d0d0d0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  word-break: break-word;
+}
+
+.contact-info li a:hover {
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* ===== COMPACT BRANCH CARD STYLES ===== */
+.branch-info {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.branch-info:last-child {
+  margin-bottom: 0;
+}
+
+.branch-info:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.branch-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.branch-title:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1.5rem;
+  height: 1.5px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-color),
+    var(--secondary-color)
+  );
+  border-radius: 1px;
+  transform: translateX(-50%);
+}
+
+/* Branch contact info - FORCE CENTER EVERYTHING */
+.branch-info .contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.branch-info .contact-info li {
+  margin-bottom: 0.4rem;
+  text-align: center !important;
+  color: #d0d0d0;
+  line-height: 1.4;
+  width: 100%;
+  /* Completely override original contact-info styles */
+  display: block !important;
+  align-items: center !important;
+  gap: 0 !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+}
+
+.branch-info .contact-info li:last-child {
+  margin-bottom: 0;
+}
+
+/* Force the entire line to be centered */
+.branch-info .contact-info li i,
+.branch-info .contact-info li span,
+.branch-info .contact-info li a {
+  text-align: center !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+.branch-info .contact-info li i {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  margin-right: 0.4rem;
+  width: auto !important;
+  margin-top: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.branch-info .contact-info li span,
+.branch-info .contact-info li a {
+  color: #d0d0d0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.branch-info .contact-info li a:hover {
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* Additional override to force center alignment */
+.footer-widget .branch-info .contact-info li {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: block !important;
+}
+
+.footer-widget .branch-info .contact-info li i,
+.footer-widget .branch-info .contact-info li span,
+.footer-widget .branch-info .contact-info li a {
+  text-align: center !important;
+}
+
+.copyright {
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 2;
+}
+
+.copyright p {
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.copyright a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.copyright a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+/* ===== FLOATING ELEMENTS ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 1.875rem;
+  right: 1.875rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--primary-dark);
+  color: var(--white);
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.875rem;
+  right: 5rem;
+  width: 3.75rem;
+  height: 3.75rem;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  transition: var(--transition);
+  box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-float img {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* ===== RESPONSIVE STYLES FOR FOOTER ===== */
+
+/* Large Desktop (1200px and up) - Default styles already defined above */
+
+/* Desktop (992px to 1199px) */
+@media (max-width: 74.9375rem) {
+  .footer-area {
+    padding: 3.5rem 0 0;
+  }
+
+  .footer-widget {
+    margin-bottom: 2.25rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .widget-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Tablet Landscape (768px to 991px) */
+@media (max-width: 61.9375rem) {
+  .footer-area {
+    padding: 3rem 0 0;
+  }
+
+  .footer-widget {
+    margin-bottom: 2rem;
+  }
+
+  .footer-logo img {
+    max-height: 3.5rem;
+  }
+
+  .widget-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-widget .social-icons {
+    gap: 0.625rem;
+  }
+
+  .footer-widget .social-icons li a {
+    width: 2.375rem;
+    height: 2.375rem;
+    font-size: 0.95rem;
+  }
+
+  .footer-links li a,
+  .contact-info li {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet Portrait (576px to 767px) */
+@media (max-width: 47.9375rem) {
+  .footer-area {
+    padding: 2.5rem 0 0;
+  }
+
+  .footer-widget {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Branch info responsive styles */
+  .branch-info {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    text-align: center;
+  }
+
+  .branch-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .branch-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Branch info mobile - inherit center styles with right shift */
+  .branch-info {
+    padding: 0.75rem;
+    margin-left: 1rem;
+  }
+
+  .branch-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .widget-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-widget .social-icons {
+    justify-content: center;
+    margin-top: 1.25rem;
+  }
+
+  /* Enhanced touch targets for tablet */
+  .footer-links li a {
+    padding: 0.5rem 0;
+    display: block;
+    font-size: 0.95rem;
+    min-height: 44px;
+    line-height: 1.4;
+  }
+
+  .footer-links li a:hover {
+    padding-left: 0;
+    transform: none;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.25rem;
+  }
+
+  .footer-links li a:before {
+    display: none;
+  }
+
+  .contact-info li {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-info li i {
+    margin-top: 0;
+    font-size: 1.25rem;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-info li span,
+  .contact-info li a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    line-height: 1.4;
+    width: 100%;
+  }
+
+  /* Clean mobile styles - inherit from main branch styles */
+  .branch-info {
+    margin-left: 1rem;
+  }
+
+  .contact-info li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+  }
+
+  /* Improved floating elements positioning for tablet */
+  .back-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .whatsapp-float {
+    bottom: 1.5rem;
+    right: 5.5rem;
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+/* Mobile Large (480px to 575px) */
+@media (max-width: 35.9375rem) {
+  .footer-area {
+    padding: 2rem 0 0;
+  }
+
+  .footer-widget {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  /* Branch info mobile styles */
+  .branch-info {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  .branch-title {
+    font-size: 0.85rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .branch-info .contact-info li {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+    text-align: center !important;
+    display: block !important;
+  }
+
+  /* Mobile responsive adjustments with right shift */
+  .branch-info {
+    padding: 0.5rem;
+    margin-left: 1rem;
+  }
+
+  .branch-title {
+    font-size: 0.85rem;
+  }
+
+  .footer-logo img {
+    max-height: 3rem;
+  }
+
+  .widget-title {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+
+  .widget-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about-text {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-widget .social-icons {
+    gap: 0.75rem;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+
+  .footer-widget .social-icons li a {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1rem;
+  }
+
+  .footer-links li {
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-links li a {
+    font-size: 0.9375rem;
+    padding: 0.75rem 0;
+    min-height: 48px;
+    display: block;
+  }
+
+  .footer-links li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.25rem;
+    padding-left: 0;
+    transform: none;
+  }
+
+  .footer-links li a:before {
+    display: none;
+  }
+
+  .contact-info {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .contact-info li {
+    margin-bottom: 1.5rem;
+    font-size: 0.9375rem;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .contact-info li i {
+    font-size: 1.2rem;
+    margin-top: 0;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-info li span,
+  .contact-info li a {
+    min-height: 48px;
+    padding: 0.75rem;
+    font-size: 0.9375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.4;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  /* Clean mobile styles - inherit from main branch styles */
+  .branch-info {
+    margin-left: 1rem;
+  }
+
+  .contact-info li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+  }
+
+  .copyright {
+    padding: 1.25rem 0;
+    margin-top: 2rem;
+  }
+
+  .copyright p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  /* Mobile floating elements optimization */
+  .back-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .whatsapp-float {
+    bottom: 1.25rem;
+    right: 5.75rem;
+    width: 4.25rem;
+    height: 4.25rem;
+  }
+
+  .whatsapp-float img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* Mobile Medium (375px to 479px) */
+@media (max-width: 29.9375rem) {
+  .footer-area {
+    padding: 1.75rem 0 0;
+  }
+
+  .footer-widget {
+    margin-bottom: 1.75rem;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    max-height: 2.75rem;
+  }
+
+  .widget-title {
+    font-size: 1.0625rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .widget-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about-text {
+    font-size: 0.8125rem;
+    line-height: 1.65;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-widget .social-icons {
+    gap: 0.625rem;
+    justify-content: center;
+  }
+
+  .footer-widget .social-icons li a {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .footer-links li a {
+    font-size: 0.875rem;
+    padding: 0.625rem 0;
+    display: block;
+  }
+
+  .footer-links li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.25rem;
+    padding-left: 0;
+    transform: none;
+  }
+
+  .footer-links li a:before {
+    display: none;
+  }
+
+  .contact-info {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .contact-info li {
+    font-size: 0.875rem;
+    margin-bottom: 1.25rem;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contact-info li i {
+    font-size: 1.1rem;
+    margin-top: 0;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-info li span,
+  .contact-info li a {
+    font-size: 0.875rem;
+    padding: 0.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.4;
+    border-radius: 0.25rem;
+    min-height: 44px;
+    width: 100%;
+  }
+
+  /* Clean mobile styles - inherit from main branch styles */
+  .branch-info {
+    margin-left: 1rem;
+  }
+
+  .contact-info li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+  }
+
+  .copyright {
+    padding: 1rem 0;
+    margin-top: 1.75rem;
+  }
+
+  .copyright p {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Mobile Small (320px to 374px) */
+@media (max-width: 23.4375rem) {
+  .footer-area {
+    padding: 1.5rem 0 0;
+  }
+
+  .footer-widget {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    max-height: 2.5rem;
+  }
+
+  .widget-title {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .widget-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about-text {
+    font-size: 0.75rem;
+    line-height: 1.7;
+    margin-bottom: 0.875rem;
+    max-width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-widget .social-icons {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-widget .social-icons li a {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 0.875rem;
+  }
+
+  .footer-links li a {
+    font-size: 0.8125rem;
+    padding: 0.5rem 0;
+    display: block;
+  }
+
+  .footer-links li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.25rem;
+    padding-left: 0;
+    transform: none;
+  }
+
+  .footer-links li a:before {
+    display: none;
+  }
+
+  .contact-info {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .contact-info li {
+    font-size: 0.8125rem;
+    margin-bottom: 1rem;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contact-info li i {
+    font-size: 1rem;
+    margin-top: 0;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-info li span,
+  .contact-info li a {
+    font-size: 0.8125rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.4;
+    border-radius: 0.25rem;
+    min-height: 44px;
+    width: 100%;
+  }
+
+  /* Clean mobile styles - inherit from main branch styles */
+  .branch-info {
+    margin-left: 1rem;
+  }
+
+  .contact-info li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+  }
+
+  .copyright {
+    padding: 0.875rem 0;
+    margin-top: 1.5rem;
+  }
+
+  .copyright p {
+    font-size: 0.75rem;
+    padding: 0 0.5rem;
+  }
+
+  /* Optimize floating elements for very small screens */
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .whatsapp-float {
+    bottom: 1rem;
+    right: 5rem;
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+
+  .whatsapp-float img {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Enhanced touch targets for all interactive elements */
+  .footer-links li a,
+  .contact-info li a,
+  .contact-info li span,
+  .footer-widget .social-icons li a {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .footer-links li a {
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Remove hover effects that don't work on touch */
+  .footer-links li a:hover:before,
+  .footer-widget .social-icons li a:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Add tap feedback instead */
+  .footer-links li a:active,
+  .contact-info li a:active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(0.98);
+  }
+
+  .footer-widget .social-icons li a:active {
+    background: linear-gradient(
+      135deg,
+      var(--primary-color),
+      var(--accent-color)
+    );
+    transform: scale(0.95);
+  }
+
+  /* Better spacing for touch interactions */
+  .footer-widget .social-icons {
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-info {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .contact-info li {
+    margin-bottom: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .contact-info li i {
+    font-size: 1.25rem;
+    margin-top: 0;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Branch info specific touch device centering */
+  .branch-info .contact-info li {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .branch-info .contact-info li span,
+  .branch-info .contact-info li a {
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Improve floating buttons for touch */
+  .back-to-top,
+  .whatsapp-float {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .back-to-top:active,
+  .whatsapp-float:active {
+    transform: scale(0.95);
+  }
+
+  /* Ensure all text is centered on touch devices */
+  .footer-widget {
+    text-align: center;
+  }
+
+  .widget-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* High DPI displays optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .footer-logo img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .footer-area {
+    padding: 1.5rem 0 0;
+  }
+
+  .footer-widget {
+    margin-bottom: 1.25rem;
+  }
+
+  .widget-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .copyright {
+    margin-top: 1.25rem;
+    padding: 0.75rem 0;
+  }
+}

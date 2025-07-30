@@ -1,0 +1,285 @@
+/* 
+* About CTA Section - Request Quote Design
+* Modern horizontal split layout with 3D building illustration
+*/
+
+/* ===== ABOUT CTA SECTION ===== */
+.about-cta-section {
+    position: relative;
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, 
+        var(--text-color) 0%, 
+        var(--primary-dark) 50%, 
+        var(--black) 100%);
+    overflow: hidden;
+}
+
+.about-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 15% 20%, rgba(254, 186, 2, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(20, 157, 225, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Container positioning */
+.about-cta-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Main CTA Card */
+.cta-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(245, 247, 250, 0.5) 0%, 
+        rgba(228, 240, 255, 0.3) 100%);
+    pointer-events: none;
+    border-radius: 16px;
+}
+
+/* Left Side - Image */
+.cta-image {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-illustration {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-illustration svg {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(30, 91, 255, 0.1));
+}
+
+/* Right Side - Content */
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-headline {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: var(--bold);
+    line-height: var(--tight);
+    margin-bottom: 1.5rem;
+}
+
+.headline-main {
+    color: #2C2C2C;
+    font-weight: var(--bold);
+    display: block;
+}
+
+.headline-highlight {
+    color: #1E5BFF;
+    font-weight: var(--bold);
+    display: block;
+}
+
+.cta-subtext {
+    font-size: 1rem;
+    line-height: var(--normal);
+    color: #7F8C8D;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+/* Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cta-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    font-size: var(--base);
+    font-weight: var(--semibold);
+    text-decoration: none;
+    border-radius: 50px;
+    background: #1E5BFF;
+    color: var(--white);
+    border: none;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition);
+}
+
+.cta-btn-primary:hover::before {
+    left: 100%;
+}
+
+.cta-btn-primary:hover {
+    background: #0A4AE6 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(30, 91, 255, 0.3);
+    color: var(--white) !important;
+}
+
+.cta-btn-primary i {
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.cta-btn-primary:hover i {
+    transform: translateX(4px);
+}
+
+.cta-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-size: var(--base);
+    font-weight: var(--semibold);
+    text-decoration: none;
+    border-radius: 50px;
+    background: var(--white);
+    color: #2C2C2C;
+    border: 2px solid #E5E7EB;
+    transition: var(--transition);
+}
+
+.cta-btn-secondary:hover {
+    background: #F9FAFB;
+    border-color: #D1D5DB;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    color: #2C2C2C;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .cta-card {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 50px 30px;
+        text-align: center;
+    }
+    
+    .cta-illustration {
+        max-width: 350px;
+    }
+    
+    .cta-headline {
+        font-size: clamp(1.75rem, 4vw, 2.25rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-cta-section {
+        padding: 3rem 1rem;
+    }
+    
+    .cta-card {
+        padding: 40px 20px;
+        gap: 30px;
+    }
+    
+    .cta-illustration {
+        height: 250px;
+        max-width: 300px;
+    }
+    
+    .cta-headline {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-bottom: 1rem;
+    }
+    
+    .cta-subtext {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .cta-btn-primary,
+    .cta-btn-secondary {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-card {
+        border-radius: 12px;
+        padding: 30px 15px;
+    }
+    
+    .cta-illustration {
+        height: 200px;
+        max-width: 250px;
+    }
+    
+    .cta-headline {
+        font-size: 1.5rem;
+    }
+    
+    .headline-main,
+    .headline-highlight {
+        font-size: inherit;
+    }
+    
+    .cta-subtext {
+        font-size: 0.875rem;
+    }
+    
+    .cta-btn-primary,
+    .cta-btn-secondary {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+} 

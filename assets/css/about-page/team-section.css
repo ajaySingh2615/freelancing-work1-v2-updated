@@ -1,0 +1,221 @@
+/* 
+* Team Section
+* Professional team member showcase with hover effects
+*/
+
+/* ===== TEAM SECTION ===== */
+.team-section {
+    position: relative;
+    padding: var(--section-padding);
+    background: var(--white);
+    overflow: hidden;
+}
+
+.team-section::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 20%;
+    height: 120%;
+    background: linear-gradient(45deg, 
+        rgba(0, 53, 133, 0.03) 0%, 
+        transparent 50%);
+    transform: rotate(-15deg);
+    pointer-events: none;
+}
+
+.team-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.team-title {
+    font-size: var(--xlarge);
+    font-weight: var(--bold);
+    color: var(--text-color);
+    line-height: var(--tight);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.team-title .highlight-text {
+    color: var(--accent-color);
+    position: relative;
+}
+
+.team-description {
+    font-size: var(--medium);
+    color: var(--light-text);
+    line-height: var(--normal);
+}
+
+/* Team Grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-member {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    transition: var(--slow-transition);
+    position: relative;
+    group: team-card;
+}
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(0, 53, 133, 0.03) 0%, 
+        transparent 50%, 
+        rgba(254, 186, 2, 0.03) 100%);
+    opacity: 0;
+    transition: var(--slow-transition);
+    z-index: 1;
+}
+
+.team-member:hover::before {
+    opacity: 1;
+}
+
+.team-member:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-color);
+}
+
+.member-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 320px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.member-content {
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.member-name {
+    font-size: var(--large);
+    font-weight: var(--bold);
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+}
+
+.team-member:hover .member-name {
+    color: var(--primary-color);
+}
+
+.member-position {
+    font-size: var(--base);
+    font-weight: var(--medium-weight);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.member-bio {
+    font-size: var(--small);
+    color: var(--light-text);
+    line-height: var(--normal);
+    margin-bottom: 1.5rem;
+}
+
+
+
+
+
+/* ===== ANIMATIONS ===== */
+@keyframes highlightExpand {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-section {
+        padding: 3rem 0;
+    }
+    
+    .team-header {
+        margin-bottom: 2.5rem;
+    }
+    
+    .team-title {
+        font-size: var(--xlarge);
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .member-image-wrapper {
+        height: 300px;
+    }
+    
+    .member-content {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .member-image-wrapper {
+        height: 250px;
+    }
+    
+    .member-content {
+        padding: 1.5rem 1rem;
+    }
+} 

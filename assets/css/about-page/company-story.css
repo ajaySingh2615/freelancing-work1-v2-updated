@@ -1,0 +1,350 @@
+/* 
+* Company Story Section
+* Our journey, mission, and vision styling
+*/
+
+/* ===== COMPANY STORY SECTION ===== */
+.company-story-section {
+    position: relative;
+    padding: var(--section-padding);
+    background: #F0F6FF;
+    overflow: hidden;
+}
+
+.company-story-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--accent-color) 50%, 
+        transparent 100%);
+}
+
+.story-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.story-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.story-title {
+    font-size: var(--xlarge);
+    font-weight: var(--bold);
+    color: var(--text-color);
+    line-height: var(--tight);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.story-title .highlight-text {
+    color: var(--accent-color);
+    position: relative;
+}
+
+.story-description {
+    font-size: var(--medium);
+    color: var(--light-text);
+    line-height: var(--normal);
+}
+
+/* Story Content Layout */
+.story-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.story-text {
+    order: 1;
+}
+
+.story-image {
+    order: 2;
+    position: relative;
+}
+
+.story-content.reverse .story-text {
+    order: 2;
+}
+
+.story-content.reverse .story-image {
+    order: 1;
+}
+
+.story-text-content h3 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: var(--bold);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.story-text-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+.story-text-content p {
+    font-size: var(--base);
+    color: var(--light-text);
+    line-height: var(--normal);
+    margin-bottom: 1.5rem;
+}
+
+
+.story-image-wrapper {
+    position: relative;
+    border-radius: var(--large);
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 0.5rem;
+}
+
+.story-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        transparent 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.story-image-wrapper:hover::before {
+    opacity: 1;
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--large);
+    transition: var(--transition);
+}
+
+.story-image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* Mission Vision Values Grid */
+.mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.mvv-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 53, 133, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.mvv-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.mvv-card:hover::before {
+    transform: scaleX(1);
+}
+
+.mvv-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(0, 53, 133, 0.15);
+    border-color: var(--accent-color);
+}
+
+.mvv-icon {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 8px 20px rgba(0, 53, 133, 0.15);
+    border: 2px solid rgba(254, 186, 2, 0.1);
+}
+
+.mvv-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+}
+
+.mvv-card:hover .mvv-icon {
+    transform: scale(1.1);
+    box-shadow: 0 15px 35px rgba(254, 186, 2, 0.25);
+    border-color: var(--accent-color);
+}
+
+.mvv-card:hover .mvv-image {
+    transform: scale(1.05);
+}
+
+.mvv-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: var(--bold);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.mvv-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    transition: all 0.4s ease;
+}
+
+.mvv-card:hover .mvv-title::after {
+    width: 60px;
+}
+
+.mvv-description {
+    font-size: var(--base);
+    color: var(--light-text);
+    line-height: var(--normal);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes highlightGrow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+    .story-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .story-content.reverse .story-text,
+    .story-text {
+        order: 2;
+    }
+    
+    .story-content.reverse .story-image,
+    .story-image {
+        order: 1;
+    }
+    
+
+    
+    .mvv-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .company-story-section {
+        padding: 3rem 0;
+    }
+    
+    .story-header {
+        margin-bottom: 2.5rem;
+    }
+    
+    .story-title {
+        font-size: 2rem;
+    }
+    
+    .story-content {
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .story-text-content h3::before {
+        display: none;
+    }
+    
+
+    
+    .mvv-card {
+        padding: 2rem;
+    }
+    
+    .mvv-icon {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    .mvv-icon i {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-header {
+        margin-bottom: 2rem;
+    }
+    
+
+    
+    .story-title {
+        font-size: 1.75rem;
+    }
+    
+    .story-description {
+        font-size: var(--base);
+    }
+    
+    .mvv-card {
+        padding: 1.5rem;
+    }
+} 
