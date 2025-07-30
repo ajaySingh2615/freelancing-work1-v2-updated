@@ -62,7 +62,7 @@
                 <div class="story-text-content">
                     <h3>Our Foundation</h3>
                     <p>MedStudy Global was founded with a simple yet powerful vision: to make quality medical education accessible to deserving students worldwide. What started as a small consultancy has grown into a comprehensive educational service provider.</p>
-                    <p>Our founders, Dr. Azaz Ahamad and Mohd Irshad, both having experienced the challenges of pursuing medical education abroad, were determined to create a bridge between ambitious students and world-class medical institutions.</p>
+                    <p>Our founders, Dr. Mohd Irshad and Azaz Ahamad, both having experienced the challenges of pursuing medical education abroad, were determined to create a bridge between ambitious students and world-class medical institutions.</p>
                 </div>
                 
 
@@ -139,13 +139,13 @@
             <!-- Team Member 1 -->
             <div class="team-member">
                 <div class="member-image-wrapper">
-                    <img src="assets/images/media/about-page/our-team/azaz_ahamad.webp" alt="Dr. Azaz Ahamad" class="member-image">
+                    <img src="assets/images/media/about-page/our-team/mohd irshad.webp" alt="Mohd Irshad" class="member-image">
                 </div>
                 <div class="member-content">
-                    <h4 class="member-name">Dr. Azaz Ahamad</h4>
+                    <h4 class="member-name">Mohd Irshad</h4>
                     <span class="member-position">Founder</span>
                     <p class="member-bio">
-                        Medical education expert with extensive experience in international admissions and student guidance for overseas medical studies.
+                        Specializes in visa processing, documentation, and comprehensive student support services with exceptional attention to detail.
                     </p>
                 </div>
             </div>
@@ -153,13 +153,13 @@
             <!-- Team Member 2 -->
             <div class="team-member">
                 <div class="member-image-wrapper">
-                    <img src="assets/images/media/about-page/our-team/mohd irshad.webp" alt="Mohd Irshad" class="member-image">
+                    <img src="assets/images/media/about-page/our-team/azaz_ahamad.webp" alt="Dr. Azaz Ahamad" class="member-image">
                 </div>
                 <div class="member-content">
-                    <h4 class="member-name">Mohd Irshad</h4>
+                    <h4 class="member-name">Dr. Azaz Ahamad</h4>
                     <span class="member-position">Co-Founder</span>
                     <p class="member-bio">
-                        Specializes in visa processing, documentation, and comprehensive student support services with exceptional attention to detail.
+                        Medical education expert with extensive experience in international admissions and student guidance for overseas medical studies.
                     </p>
                 </div>
             </div>
