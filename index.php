@@ -86,7 +86,7 @@ include('includes/header.php');
                     <script>
                         // Initialize EmailJS
                         (function() {
-                            emailjs.init("Xl2-rb_v5qwA8iJpI"); // Your EmailJS public key
+                            emailjs.init("cYl2-ey5uIdFpDGEK"); // Your EmailJS public key
                         })();
 
                         // Handle form submission
@@ -113,7 +113,7 @@ include('includes/header.php');
                             };
                             
                             // Send via EmailJS
-                            emailjs.send('service_igiat6d', 'template_5gxtwzk', templateParams)
+                            emailjs.send('service_wiqew0e', 'template_rbc0s4c', templateParams)
                                 .then(function() {
                                     alert('Thank you! Your inquiry has been sent successfully. We will contact you soon.');
                                     form.reset();
