@@ -437,17 +437,69 @@ function getAllCountries() {
         
         $countries = $stmt->fetchAll();
         
-        // Decode JSON categories for each country
-        foreach ($countries as &$country) {
-            $country['categories'] = json_decode($country['categories'], true) ?? [];
-        }
-        
         return $countries;
         
     } catch (PDOException $e) {
         error_log("Error fetching all countries: " . $e->getMessage());
         return [];
     }
+}
+
+/**
+ * Convert timestamp to "time ago" format
+ * @param string $timestamp - MySQL timestamp
+ * @return string - Formatted time ago string
+ */
+function timeAgo($timestamp) {
+    if (empty($timestamp) || $timestamp === null || $timestamp === '0000-00-00 00:00:00') {
+        return 'Recently';
+    }
+    
+    $time = strtotime($timestamp);
+    if ($time === false) {
+        return 'Recently';
+    }
+    
+    $now = time();
+    $diff = $now - $time;
+    
+    if ($diff < 60) {
+        return 'Just now';
+    } elseif ($diff < 3600) {
+        $minutes = floor($diff / 60);
+        return $minutes . ' minute' . ($minutes > 1 ? 's' : '') . ' ago';
+    } elseif ($diff < 86400) {
+        $hours = floor($diff / 3600);
+        return $hours . ' hour' . ($hours > 1 ? 's' : '') . ' ago';
+    } elseif ($diff < 2592000) {
+        $days = floor($diff / 86400);
+        return $days . ' day' . ($days > 1 ? 's' : '') . ' ago';
+    } elseif ($diff < 31536000) {
+        $months = floor($diff / 2592000);
+        return $months . ' month' . ($months > 1 ? 's' : '') . ' ago';
+    } else {
+        $years = floor($diff / 31536000);
+        return $years . ' year' . ($years > 1 ? 's' : '') . ' ago';
+    }
+}
+
+/**
+ * Format date in a readable format
+ * @param string $timestamp - MySQL timestamp
+ * @param string $format - Date format (default: 'M j, Y')
+ * @return string - Formatted date string
+ */
+function formatDate($timestamp, $format = 'M j, Y') {
+    if (empty($timestamp) || $timestamp === null || $timestamp === '0000-00-00 00:00:00') {
+        return 'Recently';
+    }
+    
+    $time = strtotime($timestamp);
+    if ($time === false) {
+        return 'Recently';
+    }
+    
+    return date($format, $time);
 }
 
 ?> 
