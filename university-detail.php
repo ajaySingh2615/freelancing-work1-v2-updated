@@ -425,7 +425,7 @@ $page_description = sprintf($page_description, $university['name']);
                             <script>
                                 // Initialize EmailJS
                                 (function() {
-                                    emailjs.init("Xl2-rb_v5qwA8iJpI"); // Your EmailJS public key
+                                    emailjs.init("cYl2-ey5uIdFpDGEK"); // Your EmailJS public key
                                 })();
 
                                 // Load Location Data from JSON
@@ -646,8 +646,8 @@ $page_description = sprintf($page_description, $university['name']);
                                         inquiry_type: 'University Detail Page Inquiry'
                                     };
                                     
-                                    // Send via EmailJS
-                                    emailjs.send('service_igiat6d', 'template_kxu5e1d', templateParams)
+                                                                               // Send via EmailJS
+                                           emailjs.send('service_wiqew0e', 'template_sjbm4xg', templateParams)
                                         .then(function() {
                                             alert('Thank you! Your inquiry about ' + universityName + ' has been sent successfully. We will contact you soon with detailed information.');
                                             form.reset();
