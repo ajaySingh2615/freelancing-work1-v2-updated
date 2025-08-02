@@ -240,6 +240,10 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - MedStudy Global</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="../assets/images/media/logo/sunrise-logo.webp">
+    <link rel="shortcut icon" type="image/webp" href="../assets/images/media/logo/sunrise-logo.webp">
+    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -747,7 +751,7 @@ try {
                 <li><a href="manage-categories.php"><i class="fas fa-tags"></i> Categories</a></li>
                 <li><a href="manage-countries.php"><i class="fas fa-globe"></i> Countries</a></li>
                 <li><a href="manage-universities.php"><i class="fas fa-university"></i> Universities</a></li>
-                <li><a href="manage-university-images.php"><i class="fas fa-images"></i> University Images</a></li>
+                <!-- <li><a href="manage-university-images.php"><i class="fas fa-images"></i> University Images</a></li> -->
                 <li><a href="../blog.php" target="_blank"><i class="fas fa-external-link-alt"></i> View Blog</a></li>
                 <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>

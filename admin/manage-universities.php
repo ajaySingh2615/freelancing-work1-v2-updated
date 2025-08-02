@@ -262,6 +262,11 @@ function sanitizeInput($input) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Universities - MedStudy Global Admin</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="../assets/images/media/logo/sunrise-logo.webp">
+    <link rel="shortcut icon" type="image/webp" href="../assets/images/media/logo/sunrise-logo.webp">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet">

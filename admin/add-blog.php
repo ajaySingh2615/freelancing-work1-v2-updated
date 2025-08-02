@@ -216,6 +216,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title><?php echo $isEdit ? 'Edit Blog' : 'Add New Blog'; ?> - MedStudy Global</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="../assets/images/media/logo/sunrise-logo.webp">
+    <link rel="shortcut icon" type="image/webp" href="../assets/images/media/logo/sunrise-logo.webp">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     

@@ -147,6 +147,10 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Categories - Admin Panel</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="../assets/images/media/logo/sunrise-logo.webp">
+    <link rel="shortcut icon" type="image/webp" href="../assets/images/media/logo/sunrise-logo.webp">
+    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->

@@ -502,4 +502,29 @@ function formatDate($timestamp, $format = 'M j, Y') {
     return date($format, $time);
 }
 
+/**
+ * Generate URL-friendly slug from string
+ * @param string $text - Text to convert to slug
+ * @return string - URL-friendly slug
+ */
+function generateSlug($text) {
+    if (empty($text)) {
+        return '';
+    }
+    
+    // Convert to lowercase
+    $slug = strtolower($text);
+    
+    // Replace spaces and special characters with hyphens
+    $slug = preg_replace('/[^a-z0-9\-]/', '-', $slug);
+    
+    // Remove multiple consecutive hyphens
+    $slug = preg_replace('/-+/', '-', $slug);
+    
+    // Remove leading and trailing hyphens
+    $slug = trim($slug, '-');
+    
+    return $slug;
+}
+
 ?> 

@@ -22,6 +22,38 @@ $headerPopularCountries = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedStudy Global - Study MBBS Abroad</title>
     
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/webp" href="assets/images/media/logo/sunrise-logo.webp">
+    <link rel="shortcut icon" type="image/webp" href="assets/images/media/logo/sunrise-logo.webp">
+    <link rel="apple-touch-icon" href="assets/images/media/logo/sunrise-logo.webp">
+    <link rel="icon" sizes="32x32" href="assets/images/media/logo/sunrise-logo.webp">
+    <link rel="icon" sizes="16x16" href="assets/images/media/logo/sunrise-logo.webp">
+    
+    <!-- Meta Description and Keywords for SEO -->
+    <meta name="description" content="MedStudy Global - Your trusted partner for MBBS abroad. Study medicine in top universities worldwide including Russia, Georgia, Kazakhstan, and more. Expert guidance and consultation.">
+    <meta name="keywords" content="MBBS abroad, study medicine abroad, medical colleges abroad, MBBS in Russia, MBBS in Georgia, medical education consultancy, study abroad">
+    <meta name="author" content="MedStudy Global">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags for Social Media and Search Results -->
+    <meta property="og:title" content="MedStudy Global - Study MBBS Abroad">
+    <meta property="og:description" content="Your trusted partner for MBBS abroad. Study medicine in top universities worldwide with expert guidance and consultation.">
+    <meta property="og:image" content="assets/images/media/logo/sunrise-logo.webp">
+    <meta property="og:url" content="<?php echo isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http' . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MedStudy Global">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MedStudy Global - Study MBBS Abroad">
+    <meta name="twitter:description" content="Your trusted partner for MBBS abroad. Study medicine in top universities worldwide with expert guidance and consultation.">
+    <meta name="twitter:image" content="assets/images/media/logo/sunrise-logo.webp">
+    
+    <!-- Theme Color for Mobile Browsers -->
+    <meta name="theme-color" content="#003585">
+    <meta name="msapplication-TileColor" content="#003585">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     
