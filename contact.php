@@ -183,7 +183,7 @@ ${message}
 _This inquiry was submitted through the MedStudy Global contact form._`;
 
                             // WhatsApp phone number (Indian format with country code)
-                            const whatsappNumber = '918808319836';
+                            const whatsappNumber = '919729317513';
                             
                             // Create WhatsApp URL
                             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
