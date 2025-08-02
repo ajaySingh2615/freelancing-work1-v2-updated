@@ -14,6 +14,30 @@ $headerPopularCountries = [
     ['name' => 'Egypt', 'slug' => 'egypt', 'flag_code' => 'eg'],
     ['name' => 'Belarus', 'slug' => 'belarus', 'flag_code' => 'by']
 ];
+
+// Get current page for active navigation
+$current_page = basename($_SERVER['PHP_SELF'], '.php');
+
+// Function to check if current page matches navigation item
+function isActivePage($page_name, $current_page) {
+    // Handle special cases
+    if ($page_name === 'index' && ($current_page === 'index' || $current_page === '')) {
+        return true;
+    }
+    
+    // Handle university-partners.php and destinations.php as MBBS Destinations
+    if ($page_name === 'destinations' && ($current_page === 'university-partners' || $current_page === 'destinations')) {
+        return true;
+    }
+    
+    // Handle resources.php as University Partners
+    if ($page_name === 'resources' && $current_page === 'resources') {
+        return true;
+    }
+    
+    // Standard page matching
+    return $page_name === $current_page;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -126,8 +150,62 @@ $headerPopularCountries = [
         }
         
         .main-nav ul li .dropdown-toggle:hover::before,
-        .main-nav ul li .dropdown-toggle.show::before {
+        .main-nav ul li .dropdown-toggle.show::before,
+        .main-nav ul li .dropdown-toggle.active::before {
             transform: scaleX(1);
+        }
+        
+        /* Active link styles */
+        .main-nav ul li a.active {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .main-nav ul li a.active::before {
+            transform: scaleX(1);
+        }
+        
+        .main-nav ul li.dropdown.active .dropdown-toggle {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        /* Additional styles for better active state visibility */
+        .main-nav ul li a:not(.dropdown-toggle)::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: center;
+        }
+        
+        .main-nav ul li a:not(.dropdown-toggle):hover::before,
+        .main-nav ul li a:not(.dropdown-toggle).active::before {
+            transform: scaleX(1);
+        }
+        
+        .main-nav ul li a:not(.dropdown-toggle) {
+            position: relative;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-color);
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .main-nav ul li a:not(.dropdown-toggle):hover,
+        .main-nav ul li a:not(.dropdown-toggle).active {
+            color: var(--primary-color);
+            text-decoration: none;
         }
         
         /* Custom Bootstrap Dropdown Styling - Clean Design */
@@ -325,6 +403,28 @@ $headerPopularCountries = [
                 max-width: 33.333333%;
             }
         }
+        
+        /* Mobile Menu Active States */
+        .mobile-menu .nav-menu li a.active {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            background-color: rgba(0, 53, 133, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 16px !important;
+        }
+        
+        .mobile-menu .nav-menu li a {
+            transition: all 0.3s ease;
+            padding: 12px 20px;
+            display: block;
+            border-left: 4px solid transparent;
+        }
+        
+        .mobile-menu .nav-menu li a:hover {
+            color: var(--primary-color) !important;
+            background-color: rgba(0, 53, 133, 0.05);
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -384,11 +484,11 @@ $headerPopularCountries = [
                     <div class="col-lg-8 col-md-7">
                         <nav class="main-nav">
                             <ul>
-                                <li><a href="index.php" class="active">Home</a></li>
-                                <li><a href="about.php">About Us</a></li>
-                                <li><a href="services.php">Our Services</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" id="mbbsDestinationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <li><a href="index.php" class="<?php echo isActivePage('index', $current_page) ? 'active' : ''; ?>">Home</a></li>
+                                <li><a href="about.php" class="<?php echo isActivePage('about', $current_page) ? 'active' : ''; ?>">About Us</a></li>
+                                <li><a href="services.php" class="<?php echo isActivePage('services', $current_page) ? 'active' : ''; ?>">Our Services</a></li>
+                                <li class="dropdown <?php echo isActivePage('destinations', $current_page) ? 'active' : ''; ?>">
+                                    <a href="#" class="dropdown-toggle <?php echo isActivePage('destinations', $current_page) ? 'active' : ''; ?>" id="mbbsDestinationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         MBBS Destinations
                                     </a>
                                     <div class="dropdown-menu destinations-dropdown" aria-labelledby="mbbsDestinationsDropdown">
@@ -418,10 +518,10 @@ $headerPopularCountries = [
                                         </a>
                                     </div>
                                 </li>
-                                <li><a href="resources.php">University Partners</a></li>
-                                <li><a href="blog.php">Blog</a></li>
-                                <li><a href="gallery.php">Gallery</a></li>
-                                <li><a href="contact.php">Contact Us</a></li>
+                                <li><a href="resources.php" class="<?php echo isActivePage('resources', $current_page) ? 'active' : ''; ?>">University Partners</a></li>
+                                <li><a href="blog.php" class="<?php echo isActivePage('blog', $current_page) ? 'active' : ''; ?>">Blog</a></li>
+                                <li><a href="gallery.php" class="<?php echo isActivePage('gallery', $current_page) ? 'active' : ''; ?>">Gallery</a></li>
+                                <li><a href="contact.php" class="<?php echo isActivePage('contact', $current_page) ? 'active' : ''; ?>">Contact Us</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -454,20 +554,20 @@ $headerPopularCountries = [
         <div class="menu-content">
             <div class="menu-header">
                 <a href="index.php">
-                    <img src="assets/images/logo.png" alt="MedStudy Global" class="img-fluid">
+                    <img src="assets/images/media/logo/sunrise-logo.webp" alt="MedStudy Global" class="img-fluid">
                 </a>
                 <button class="close-menu" aria-label="Close mobile menu"><i class="fas fa-times"></i></button>
             </div>
             <div class="menu-body">
                 <ul class="nav-menu">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="services.php">Our Services</a></li>
-                    <li><a href="destinations.php">MBBS Destinations</a></li>
-                    <li><a href="resources.php">University Partners</a></li>
-                    <li><a href="blog.php">Blog</a></li>
-                    <li><a href="gallery.php">Gallery</a></li>
-                    <li><a href="contact.php">Contact Us</a></li>
+                    <li><a href="index.php" class="<?php echo isActivePage('index', $current_page) ? 'active' : ''; ?>">Home</a></li>
+                    <li><a href="about.php" class="<?php echo isActivePage('about', $current_page) ? 'active' : ''; ?>">About Us</a></li>
+                    <li><a href="services.php" class="<?php echo isActivePage('services', $current_page) ? 'active' : ''; ?>">Our Services</a></li>
+                    <li><a href="destinations.php" class="<?php echo isActivePage('destinations', $current_page) ? 'active' : ''; ?>">MBBS Destinations</a></li>
+                    <li><a href="resources.php" class="<?php echo isActivePage('resources', $current_page) ? 'active' : ''; ?>">University Partners</a></li>
+                    <li><a href="blog.php" class="<?php echo isActivePage('blog', $current_page) ? 'active' : ''; ?>">Blog</a></li>
+                    <li><a href="gallery.php" class="<?php echo isActivePage('gallery', $current_page) ? 'active' : ''; ?>">Gallery</a></li>
+                    <li><a href="contact.php" class="<?php echo isActivePage('contact', $current_page) ? 'active' : ''; ?>">Contact Us</a></li>
                 </ul>
                 <div class="menu-contact">
                     <h4>Contact Info</h4>
