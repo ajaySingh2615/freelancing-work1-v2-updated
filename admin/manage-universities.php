@@ -961,11 +961,11 @@ function sanitizeInput($input) {
                         </div>
                         
                         <div class="form-row">
-                            <div class="form-group half">
+                            <!-- <div class="form-group half">
                                 <label class="form-label">Annual Fees (USD)</label>
                                 <input type="number" name="annual_fees" class="form-control" min="0" step="0.01"
                                        value="<?php echo $editing_university ? $editing_university['annual_fees'] : ''; ?>">
-                            </div>
+                            </div> -->
                             <div class="form-group half">
                                 <label class="form-label">Status</label>
                                 <div class="form-check mt-2">
