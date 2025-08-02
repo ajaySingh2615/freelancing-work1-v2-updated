@@ -1213,18 +1213,7 @@ $page_description = sprintf($page_description, $university['name']);
     font-size: var(--small);
 }
 
-/* Gallery Styles */
-.main-image-container {
-    height: 400px;
-    overflow: hidden;
-    border-radius: var(--medium-radius);
-}
-
-.main-university-image {
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--medium-radius);
-}
+/* Gallery Styles - Overridden by external CSS */
 
 .placeholder-image {
     height: 400px;
