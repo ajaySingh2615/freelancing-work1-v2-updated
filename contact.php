@@ -77,7 +77,7 @@ include('includes/header.php');
             <!-- Right Side: Contact Form -->
             <div class="contact-form-section">
                 <div class="contact-form-content">
-                    <form id="contact-form" action="process-contact.php" method="post">
+                    <form id="contact-form">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="first-name">First Name</label>
@@ -99,23 +99,52 @@ include('includes/header.php');
                                 <input type="tel" class="form-control" id="phone" name="phone" required>
                             </div>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+                            <label for="interested-course">Course Interested In</label>
+                            <select class="form-control" id="interested-course" name="interested_course" required>
+                                <option value="">Select Course</option>
+                                <option value="MBBS">MBBS</option>
+                                <option value="BDS">BDS</option>
+                                <option value="MD">MD</option>
+                                <option value="Nursing">Nursing</option>
+                                <option value="Pharmacy">Pharmacy</option>
+                                <option value="Other Medical Course">Other Medical Course</option>
+                            </select>
                         </div>
                         
-                        <button type="submit" class="btn-submit">Send Message</button>
+                        <div class="form-group">
+                            <label for="preferred-country">Preferred Country</label>
+                            <select class="form-control" id="preferred-country" name="preferred_country" required>
+                                <option value="">Select Country</option>
+                                <option value="India">India</option>
+                                <option value="Iran">Iran</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Russia">Russia</option>
+                                <option value="Kazakhstan">Kazakhstan</option>
+                                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Uzbekistan">Uzbekistan</option>
+                                <option value="Nepal">Nepal</option>
+                                <option value="China">China</option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="Belarus">Belarus</option>
+                                <option value="Not Sure">Not Sure</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your academic background, goals, or any specific questions..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">
+                            <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                        </button>
                     </form>
 
-                    <!-- EmailJS Integration Script -->
-                    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+                    <!-- WhatsApp Integration Script -->
                     <script>
-                        // Initialize EmailJS
-                        (function() {
-                            emailjs.init("Xl2-rb_v5qwA8iJpI"); // Your EmailJS public key
-                        })();
-
-                        // Handle contact form submission
                         document.getElementById('contact-form').addEventListener('submit', function(event) {
                             event.preventDefault();
                             
@@ -124,64 +153,152 @@ include('includes/header.php');
                             const originalText = submitBtn.innerHTML;
                             
                             // Show loading state
-                            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing WhatsApp...';
                             submitBtn.disabled = true;
                             
-                            // Prepare template parameters
-                            const templateParams = {
-                                first_name: form.first_name.value,
-                                last_name: form.last_name.value,
-                                from_name: form.first_name.value + ' ' + form.last_name.value,
-                                from_email: form.email.value,
-                                phone: form.phone.value,
-                                message: form.message.value,
-                                to_email: 'ajaysingh261526@gmail.com',
-                                date: new Date().toLocaleString(),
-                                subject: 'New Contact Form Submission from ' + form.first_name.value + ' ' + form.last_name.value
-                            };
+                            // Get form data
+                            const firstName = form.first_name.value.trim();
+                            const lastName = form.last_name.value.trim();
+                            const email = form.email.value.trim();
+                            const phone = form.phone.value.trim();
+                            const course = form.interested_course.value;
+                            const country = form.preferred_country.value;
+                            const message = form.message.value.trim();
                             
-                            // Send via EmailJS
-                            emailjs.send('service_igiat6d', 'template_kxu5e1d', templateParams)
-                                .then(function() {
-                                    alert('Thank you! Your message has been sent successfully. We will get back to you within 24 hours.');
-                                    form.reset();
-                                }, function(error) {
-                                    console.log('EmailJS Error:', error);
-                                    console.log('Falling back to PHP form submission...');
-                                    alert('Using backup email system...');
-                                    // Fallback to PHP form
-                                    submitContactFormViaPhp(form);
-                                })
-                                .finally(function() {
-                                    // Restore button
-                                    submitBtn.innerHTML = originalText;
-                                    submitBtn.disabled = false;
-                                });
+                            // Create WhatsApp message
+                            const whatsappMessage = `🎓 *New Inquiry from Website*
+
+👤 *Name:* ${firstName} ${lastName}
+📧 *Email:* ${email}
+📱 *Phone:* ${phone}
+📚 *Course Interested:* ${course}
+🌍 *Preferred Country:* ${country}
+
+💬 *Message:*
+${message}
+
+📅 *Date:* ${new Date().toLocaleString()}
+
+---
+_This inquiry was submitted through the MedStudy Global contact form._`;
+
+                            // WhatsApp phone number (Indian format with country code)
+                            const whatsappNumber = '918808319836';
+                            
+                            // Create WhatsApp URL
+                            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+                            
+                            // Small delay for better UX
+                            setTimeout(() => {
+                                // Open WhatsApp
+                                window.open(whatsappURL, '_blank');
+                                
+                                // Show success message
+                                alert('✅ Thank you! You will be redirected to WhatsApp where your message is ready to send. Our team will respond to you shortly.');
+                                
+                                // Reset form
+                                form.reset();
+                                
+                                // Restore button
+                                submitBtn.innerHTML = originalText;
+                                submitBtn.disabled = false;
+                            }, 1000);
                         });
                         
-                        // Fallback to PHP submission
-                        function submitContactFormViaPhp(form) {
-                            const formData = new FormData(form);
-                            
-                            fetch('process-contact.php', {
-                                method: 'POST',
-                                body: formData
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                if (data.status === 'success') {
-                                    alert(data.message);
-                                    form.reset();
-                                } else {
-                                    alert('Error: ' + data.message);
-                                }
-                            })
-                            .catch(error => {
-                                console.error('Error:', error);
-                                alert('There was an error submitting your form. Please try again or contact us directly.');
+                        // Form validation enhancement
+                        const form = document.getElementById('contact-form');
+                        const inputs = form.querySelectorAll('input, select, textarea');
+                        
+                        inputs.forEach(input => {
+                            input.addEventListener('blur', function() {
+                                validateField(this);
                             });
+                        });
+                        
+                        function validateField(field) {
+                            const value = field.value.trim();
+                            const fieldContainer = field.closest('.form-group');
+                            
+                            // Remove previous validation classes
+                            fieldContainer.classList.remove('has-error', 'has-success');
+                            
+                            if (field.hasAttribute('required') && !value) {
+                                fieldContainer.classList.add('has-error');
+                                return false;
+                            }
+                            
+                            // Email validation
+                            if (field.type === 'email' && value) {
+                                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                                if (!emailRegex.test(value)) {
+                                    fieldContainer.classList.add('has-error');
+                                    return false;
+                                }
+                            }
+                            
+                            // Phone validation (basic)
+                            if (field.type === 'tel' && value) {
+                                const phoneRegex = /^[+]?[\d\s\-\(\)]{10,}$/;
+                                if (!phoneRegex.test(value)) {
+                                    fieldContainer.classList.add('has-error');
+                                    return false;
+                                }
+                            }
+                            
+                            fieldContainer.classList.add('has-success');
+                            return true;
                         }
                     </script>
+                    
+                    <!-- Add some custom CSS for form validation -->
+                    <style>
+                        .form-group.has-error .form-control {
+                            border-color: #dc3545;
+                            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+                        }
+                        
+                        .form-group.has-success .form-control {
+                            border-color: #28a745;
+                            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+                        }
+                        
+                        .btn-submit {
+                            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+                            border: none;
+                            color: white;
+                            padding: 15px 30px;
+                            border-radius: 8px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            transition: all 0.3s ease;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 10px;
+                            width: 100%;
+                        }
+                        
+                        .btn-submit:hover {
+                            background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+                            transform: translateY(-2px);
+                            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+                        }
+                        
+                        .btn-submit:disabled {
+                            opacity: 0.7;
+                            cursor: not-allowed;
+                            transform: none;
+                        }
+                        
+                        .form-control {
+                            transition: all 0.3s ease;
+                        }
+                        
+                        .form-control:focus {
+                            border-color: #25D366;
+                            box-shadow: 0 0 0 0.2rem rgba(37, 211, 102, 0.25);
+                        }
+                    </style>
                 </div>
             </div>
         </div>
