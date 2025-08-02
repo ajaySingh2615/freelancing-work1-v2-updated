@@ -946,11 +946,11 @@ function sanitizeInput($input) {
                             <textarea name="description" class="form-control" rows="3"><?php echo $editing_country ? htmlspecialchars($editing_country['description']) : ''; ?></textarea>
                         </div>
                         
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="form-label">Featured Image URL (Cloudinary)</label>
                             <input type="url" name="featured_image" class="form-control"
                                    value="<?php echo $editing_country ? htmlspecialchars($editing_country['featured_image']) : ''; ?>">
-                        </div>
+                        </div> -->
                         
                         <div class="form-row">
                             <div class="form-group half">

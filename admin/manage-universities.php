@@ -925,11 +925,11 @@ function sanitizeInput($input) {
                                 <input type="url" name="featured_image" class="form-control"
                                        value="<?php echo $editing_university ? htmlspecialchars($editing_university['featured_image']) : ''; ?>">
                             </div>
-                            <div class="form-group half">
+                            <!-- <div class="form-group half">
                                 <label class="form-label">Logo Image URL (Cloudinary)</label>
                                 <input type="url" name="logo_image" class="form-control"
                                        value="<?php echo $editing_university ? htmlspecialchars($editing_university['logo_image']) : ''; ?>">
-                            </div>
+                            </div> -->
                         </div>
                         
                         <!-- Academic Information Section -->
