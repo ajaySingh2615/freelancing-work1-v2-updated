@@ -485,8 +485,8 @@ function isActivePage($page_name, $current_page) {
                         <nav class="main-nav">
                             <ul>
                                 <li><a href="index.php" class="<?php echo isActivePage('index', $current_page) ? 'active' : ''; ?>">Home</a></li>
-                                <li><a href="about.php" class="<?php echo isActivePage('about', $current_page) ? 'active' : ''; ?>">About Us</a></li>
-                                <li><a href="services.php" class="<?php echo isActivePage('services', $current_page) ? 'active' : ''; ?>">Our Services</a></li>
+                                <li><a href="about.php" class="<?php echo isActivePage('about', $current_page) ? 'active' : ''; ?>">About</a></li>
+                                <li><a href="services.php" class="<?php echo isActivePage('services', $current_page) ? 'active' : ''; ?>">Services</a></li>
                                 <li class="dropdown <?php echo isActivePage('destinations', $current_page) ? 'active' : ''; ?>">
                                     <a href="#" class="dropdown-toggle <?php echo isActivePage('destinations', $current_page) ? 'active' : ''; ?>" id="mbbsDestinationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         MBBS Destinations
@@ -521,7 +521,7 @@ function isActivePage($page_name, $current_page) {
                                 <li><a href="resources.php" class="<?php echo isActivePage('resources', $current_page) ? 'active' : ''; ?>">University Partners</a></li>
                                 <li><a href="blog.php" class="<?php echo isActivePage('blog', $current_page) ? 'active' : ''; ?>">Blog</a></li>
                                 <li><a href="gallery.php" class="<?php echo isActivePage('gallery', $current_page) ? 'active' : ''; ?>">Gallery</a></li>
-                                <li><a href="contact.php" class="<?php echo isActivePage('contact', $current_page) ? 'active' : ''; ?>">Contact Us</a></li>
+                                <li><a href="contact.php" class="<?php echo isActivePage('contact', $current_page) ? 'active' : ''; ?>">Contact</a></li>
                             </ul>
                         </nav>
                     </div>

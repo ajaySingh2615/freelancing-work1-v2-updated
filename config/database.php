@@ -7,8 +7,8 @@
 // Database Configuration
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'medstudy_blog');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_USER', 'sunrise');
+define('DB_PASS', 'medstudy_blog_Password123#');
 
 // Cloudinary Configuration
 define('CLOUDINARY_CLOUD_NAME', 'dswzvbhix');
@@ -529,6 +529,6 @@ function insertSampleUniversities($db) {
     }
 }
 
-// Create tables on first run
-createTables($db);
+// Create tables on first run (DISABLED - Use setup-production.php instead)
+// createTables($db);
 ?> 

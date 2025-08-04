@@ -12,6 +12,23 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 $database = new Database();
 $db = $database->connect();
 
+// Debug: Check database connection and settings
+try {
+    $autocommitResult = $db->query("SELECT @@autocommit as autocommit_status");
+    $autocommit = $autocommitResult->fetch()['autocommit_status'];
+    error_log("Database autocommit status: " . ($autocommit ? 'ON' : 'OFF'));
+    
+    $isolationResult = $db->query("SELECT @@transaction_isolation as isolation_level");
+    $isolation = $isolationResult->fetch()['isolation_level'];
+    error_log("Transaction isolation level: " . $isolation);
+    
+    // Force enable autocommit to ensure changes are committed immediately
+    $db->exec("SET autocommit = 1");
+    error_log("Autocommit forcibly enabled. Current status: " . ($autocommit ? 'ON' : 'OFF'));
+} catch (Exception $e) {
+    error_log("Error checking database settings: " . $e->getMessage());
+}
+
 $errors = [];
 $success = '';
 
@@ -19,6 +36,41 @@ $success = '';
 if (isset($_SESSION['success_message'])) {
     $success = $_SESSION['success_message'];
     unset($_SESSION['success_message']);
+}
+
+// Debug: Log POST data for troubleshooting (remove in production)
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    error_log("POST Data: " . print_r($_POST, true));
+}
+
+// Debug: Check database foreign key constraints
+try {
+    $constraintCheck = $db->prepare("
+        SELECT 
+            CONSTRAINT_NAME,
+            TABLE_NAME,
+            COLUMN_NAME,
+            REFERENCED_TABLE_NAME,
+            REFERENCED_COLUMN_NAME
+        FROM 
+            INFORMATION_SCHEMA.KEY_COLUMN_USAGE 
+        WHERE 
+            REFERENCED_TABLE_NAME = 'universities' 
+            AND TABLE_SCHEMA = DATABASE()
+    ");
+    $constraintCheck->execute();
+    $constraints = $constraintCheck->fetchAll();
+    
+    if (!empty($constraints)) {
+        error_log("Foreign key constraints found for universities table:");
+        foreach ($constraints as $constraint) {
+            error_log("- {$constraint['TABLE_NAME']}.{$constraint['COLUMN_NAME']} references universities.{$constraint['REFERENCED_COLUMN_NAME']}");
+        }
+    } else {
+        error_log("No foreign key constraints found for universities table");
+    }
+} catch (Exception $e) {
+    error_log("Error checking constraints: " . $e->getMessage());
 }
 
 // Handle form submissions
@@ -104,18 +156,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             case 'delete_university':
                 $id = intval($_POST['university_id']);
                 
+                if ($id <= 0) {
+                    $errors[] = "Invalid university ID provided.";
+                    break;
+                }
+                
                 try {
-                    // Delete associated images first
+                    // Debug: Check if university exists before deletion
+                    $checkStmt = $db->prepare("SELECT id, name FROM universities WHERE id = ?");
+                    $checkStmt->execute([$id]);
+                    $universityExists = $checkStmt->fetch();
+                    
+                    if (!$universityExists) {
+                        $errors[] = "University with ID {$id} not found.";
+                        break;
+                    }
+                    
+                    error_log("DIRECT DELETE ATTEMPT: Starting deletion for university ID={$id}, Name={$universityExists['name']}");
+                    
+                    // Step 1: Delete university images (no foreign key issues)
                     $deleteImagesStmt = $db->prepare("DELETE FROM university_images WHERE university_id = ?");
                     $deleteImagesStmt->execute([$id]);
+                    $deletedImages = $deleteImagesStmt->rowCount();
+                    error_log("STEP 1: Deleted {$deletedImages} images for university {$id}");
                     
-                    // Delete university
-                    $stmt = $db->prepare("DELETE FROM universities WHERE id = ?");
-                    $stmt->execute([$id]);
-                    $_SESSION['success_message'] = "University deleted successfully!";
-                    header("Location: manage-universities.php");
-                    exit();
+                    // Step 2: Delete the university directly
+                    $deleteUniversityStmt = $db->prepare("DELETE FROM universities WHERE id = ?");
+                    $result = $deleteUniversityStmt->execute([$id]);
+                    $affectedRows = $deleteUniversityStmt->rowCount();
+                    
+                    error_log("STEP 2: DELETE FROM universities WHERE id = {$id}");
+                    error_log("STEP 2: Execute result: " . ($result ? 'TRUE' : 'FALSE'));
+                    error_log("STEP 2: Affected rows: {$affectedRows}");
+                    
+                    // Step 3: Immediate verification (no delays)
+                    $checkStmt = $db->prepare("SELECT COUNT(*) as count FROM universities WHERE id = ?");
+                    $checkStmt->execute([$id]);
+                    $stillExists = $checkStmt->fetch()['count'];
+                    
+                    error_log("STEP 3: Verification - University count after deletion: {$stillExists}");
+                    
+                    if ($stillExists > 0) {
+                        error_log("FAILED: University {$id} still exists in database after deletion!");
+                        $errors[] = "Deletion failed - university still exists in database.";
+                    } else {
+                        error_log("SUCCESS: University {$id} completely removed from database!");
+                        $_SESSION['success_message'] = "University deleted successfully!";
+                        header("Location: manage-universities.php");
+                        exit();
+                    }
                 } catch (Exception $e) {
+                    error_log("Exception during university deletion: " . $e->getMessage());
                     $errors[] = "Error deleting university: " . $e->getMessage();
                 }
                 break;
@@ -124,42 +215,104 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $action = $_POST['bulk_action'] ?? '';
                 $selected_ids = $_POST['selected_universities'] ?? [];
                 
-
+                error_log("Bulk action started: action='{$action}', selected_ids=" . print_r($selected_ids, true));
                 
                 if (empty($selected_ids)) {
+                    error_log("Bulk action failed: No universities selected");
                     $errors[] = "Please select at least one university to perform bulk action.";
                 } elseif (empty($action)) {
+                    error_log("Bulk action failed: No action selected");
                     $errors[] = "Please select an action to perform.";
                 } else {
+                    error_log("Bulk action proceeding with action='{$action}' for " . count($selected_ids) . " universities");
                     try {
                         $processed_count = 0;
                         
+                        // Remove transaction for now - use direct execution with autocommit
+                        error_log("Using direct execution without transactions");
+                        
+                        // Prepare statements outside the switch to ensure proper scope
+                        $stmt = null;
+                        $deleteImagesStmt = null;
+                        
                         switch ($action) {
                             case 'activate':
+                                error_log("Preparing activate statements");
                                 $stmt = $db->prepare("UPDATE universities SET is_active = 1 WHERE id = ?");
                                 break;
                             case 'deactivate':
+                                error_log("Preparing deactivate statements");
                                 $stmt = $db->prepare("UPDATE universities SET is_active = 0 WHERE id = ?");
                                 break;
                             case 'delete':
-                                // Delete images first
+                                error_log("BULK DELETE: Preparing simple delete statements");
+                                // Simple approach - just delete directly
                                 $deleteImagesStmt = $db->prepare("DELETE FROM university_images WHERE university_id = ?");
                                 $stmt = $db->prepare("DELETE FROM universities WHERE id = ?");
                                 break;
                             default:
+                                error_log("Invalid action selected: '{$action}'");
                                 $errors[] = "Invalid action selected.";
                                 break 2; // Break out of both switch and try
                         }
                         
+                        // Check if statements were prepared successfully
+                        if ($stmt === null) {
+                            $errors[] = "Failed to prepare database statement for the selected action.";
+                            break; // Break out of the try block
+                        }
+                        
                         foreach ($selected_ids as $id) {
                             $id = intval($id);
+                            error_log("Processing university ID: {$id}");
                             if ($id > 0) {
-                                if ($action === 'delete') {
-                                    $deleteImagesStmt->execute([$id]);
+                                try {
+                                    if ($action === 'delete') {
+                                        // Delete university images first
+                                        $deleteImagesStmt->execute([$id]);
+                                        $deletedImages = $deleteImagesStmt->rowCount();
+                                        error_log("BULK DELETE: Deleted {$deletedImages} images for university {$id}");
+                                        
+                                        // Delete the university
+                                        $deleteResult = $stmt->execute([$id]);
+                                        $rowsAffected = $stmt->rowCount();
+                                        error_log("BULK DELETE: University {$id} - Execute: " . ($deleteResult ? 'TRUE' : 'FALSE') . ", Rows: {$rowsAffected}");
+                                        
+                                        // Verify it's actually gone
+                                        $verifyStmt = $db->prepare("SELECT COUNT(*) as count FROM universities WHERE id = ?");
+                                        $verifyStmt->execute([$id]);
+                                        $stillExists = $verifyStmt->fetch()['count'];
+                                        error_log("BULK DELETE: University {$id} still exists: {$stillExists}");
+                                        
+                                        if ($stillExists == 0 && $rowsAffected > 0) {
+                                            $processed_count++;
+                                            error_log("BULK DELETE: University {$id} successfully deleted");
+                                        } else {
+                                            error_log("BULK DELETE: University {$id} deletion failed");
+                                        }
+                                    } else {
+                                        // Execute non-delete actions normally
+                                        $stmt->execute([$id]);
+                                        $rowsAffected = $stmt->rowCount();
+                                        error_log("Bulk action '{$action}' on university {$id}: {$rowsAffected} rows affected");
+                                        
+                                        if ($rowsAffected > 0) {
+                                            $processed_count++;
+                                        }
+                                    }
+                                } catch (Exception $e) {
+                                    error_log("Error processing university ID {$id}: " . $e->getMessage());
+                                    $errors[] = "Error processing university ID {$id}: " . $e->getMessage();
+                                    // Continue with other IDs rather than failing the entire batch
                                 }
-                                $stmt->execute([$id]);
-                                $processed_count++;
+                            } else {
+                                error_log("Skipping invalid university ID: {$id}");
                             }
+                        }
+                        
+                        // Check if any universities were processed
+                        if ($processed_count === 0 && empty($errors)) {
+                            $errors[] = "No universities were found to process with the selected action.";
                         }
                         
                         if ($processed_count > 0) {

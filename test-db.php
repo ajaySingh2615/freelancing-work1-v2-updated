@@ -160,11 +160,12 @@ try {
         echo "<p>✓ Countries table already has $countryCount records</p>";
     }
 
-    // Insert sample universities
+    // Insert sample universities (DISABLED - No automatic seeding)
     $stmt = $db->query("SELECT COUNT(*) FROM universities");
     $universityCount = $stmt->fetchColumn();
     
-    if ($universityCount == 0) {
+    // DISABLED: Automatic university seeding to prevent recreation after deletion
+    if (false && $universityCount == 0) {
         echo "<p>Inserting sample universities...</p>";
         
         // Get country IDs
@@ -191,7 +192,7 @@ try {
         
         echo "<p>✓ Sample universities inserted successfully</p>";
     } else {
-        echo "<p>✓ Universities table already has $universityCount records</p>";
+        echo "<p>✓ Universities table has $universityCount records (auto-seeding disabled)</p>";
     }
 
     echo "<h3>Final Status:</h3>";
