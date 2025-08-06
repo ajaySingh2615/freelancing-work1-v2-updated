@@ -305,7 +305,7 @@ _This inquiry was submitted through the MedStudy Global contact form._`;
     </div>
 </section>
 
-<!-- Office Locations Section -->
+<!-- Office Locations Section -->   
 <section class="office-section section-padding bg-light">
     <div class="container">
         <div class="row">

@@ -179,6 +179,19 @@
                 <div class="gallery-grid-item">
                     <img src="assets/images/media/gallary-images/new/image-8.webp" alt="Gallery Image 8" data-full="assets/images/media/gallary-images/new/image-8.webp">
                 </div>
+                
+                <!-- New images from more-images folder -->
+                <div class="gallery-grid-item">
+                    <img src="assets/images/media/gallary-images/more-images/image-1.webp" alt="Gallery Image 9" data-full="assets/images/media/gallary-images/more-images/image-1.webp">
+                </div>
+                
+                <div class="gallery-grid-item">
+                    <img src="assets/images/media/gallary-images/more-images/image-2.webp" alt="Gallery Image 10" data-full="assets/images/media/gallary-images/more-images/image-2.webp">
+                </div>
+                
+                <div class="gallery-grid-item">
+                    <img src="assets/images/media/gallary-images/more-images/image-3.webp" alt="Gallery Image 11" data-full="assets/images/media/gallary-images/more-images/image-3.webp">
+                </div>
             </div>
         </div>
     </section>
