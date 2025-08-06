@@ -75,13 +75,36 @@
                                     <i class="fas fa-phone-alt"></i>
                                     <a href="tel:+91-8059782607">+91-8059782607</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <i class="fas fa-envelope"></i>
                                     <a href="mailto:sunriseglobaleducationgurgaon@gmail.com">sunriseglobaleducationgurgaon@gmail.com</a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <i class="fas fa-clock"></i>
                                     <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- International Office -->
+                        <div class="branch-info">
+                            <h5 class="branch-title">Our International Office</h5>
+                            <ul class="contact-info">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>302027, Oryol region, Oktyabrskaya st., 211, House No.114, office No. 5, OREL STATE RUSSIA</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone-alt"></i>
+                                    <a href="tel:+7-9538131758">+7 9538131758</a>
+                                </li>
+                                <!-- <li>
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:sunriseglobaleducationgurgaon@gmail.com">sunriseglobaleducationgurgaon@gmail.com</a>
+                                </li> -->
+                                <li>
+                                    <i class="fas fa-globe"></i>
+                                    <span>International Office</span>
                                 </li>
                             </ul>
                         </div>

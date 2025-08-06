@@ -315,7 +315,7 @@ _This inquiry was submitted through the MedStudy Global contact form._`;
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <div class="office-box">
                     <h3>Headquarter</h3>
                     <p>Unit-828, Tower B3, Spaze i-Tech Park,<br> Sector 49, Gurugram, Haryana 122018</p>
@@ -325,13 +325,23 @@ _This inquiry was submitted through the MedStudy Global contact form._`;
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <div class="office-box">
                     <h3>Branch Office</h3>
                     <p>New Anaj Mandi, Nuh Hodal Rd,<br> above JJP office, Nuh, Haryana 122107</p>
                     <ul class="office-contact">
                         <li><i class="fas fa-phone-alt"></i> <a href="tel:+91-8059782607">+91-8059782607</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> <span>Nuh, Haryana</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="office-box">
+                    <h3>Our International Office</h3>
+                    <p>302027, Oryol region, Oktyabrskaya st., 211,<br> House No.114, office No. 5, OREL STATE RUSSIA</p>
+                    <ul class="office-contact">
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+7-9538131758">+7 9538131758</a></li>
+                        <li><i class="fas fa-globe"></i> <span>International Office</span></li>
                     </ul>
                 </div>
             </div>
